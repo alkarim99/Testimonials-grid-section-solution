@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Testimonials grid section solution</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 13px;
+      background-color: hsl(210, 46%, 95%);
+      box-sizing: border-box;
+      height: 620px;
+      display: grid;
+      place-content: center;
+    }
+    .container{
+      width: 1100px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 0.5fr;
+      grid-template-areas:
+        "card-1 card-1 card-2 card-5"
+        "card-3 card-4 card-4 card-5";
+      grid-gap: 20px;
+    }
+
+    /* card-user */
+    .container .card{
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .container .card .user{
+      display: flex;
+      align-items: center;
+    }
+    .container .card .user img{
+      height: 40px;
+      border-radius: 40px;
+      margin-right: 10px;
+    }
+    .container .card .user .id p{
+      margin: 0;
+    }
+    .container .card .user .id p.name{
+      font-weight: 600;
+    }
+    .container .card .user .id p.title{
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* card main */
+    .container .card p.main{
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    /* card desc */
+    .container .card p.desc{
+      font-weight: 500;
+    }
+
+    /* card-1 */
+    .container .card-1{
+      grid-area: card-1;
+      background-color: hsl(263, 55%, 52%);
+      background-image: url(images/bg-pattern-quotation.svg);
+      background-repeat: no-repeat;
+      background-size: 102px;
+      background-position: 330px 0;
+    }
+    .container .card-1 img{
+      border: 3px solid hsl(263, 55%, 62%);
+    }
+    .container .card-1 p.name{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-1 p.title{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-1 p.main{
+      color: hsl(0, 0%, 100%);
+    }
+    .container .card-1 p.desc{
+      color: hsl(0, 0%, 81%);
+    }
+
+    /* card-2 */
+    .container .card-2{
+      grid-area: card-2;
+      background-color: hsl(217, 19%, 35%);
+    }
+    .container .card-2 img{
+      border: 3px solid hsl(210, 46%, 95%);
+    }
+    .container .card-2 p.name{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-2 p.title{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-2 p.main{
+      color: hsl(210, 46%, 95%);
+    }
+    .container .card-2 p.desc{
+      color: hsl(0, 0%, 81%);
+    }
+
+
+    /* card-3 */
+    .container .card-3, .card-5{
+      background-color: hsl(0, 0%, 100%);
+    }
+    .container .card-3 img, .card-5 img{
+      border: 3px solid hsl(0, 0%, 100%);
+    }
+    .container .card-3 p.name, .card-5 p.name{
+      color: hsl(217, 19%, 35%);
+    }
+    .container .card-3 p.title, .card-5 p.title{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-3 p.main, .card-5 p.main{
+      color: hsl(217, 19%, 35%);
+    }
+    .container .card-3 p.desc, .card-5 p.desc{
+      color: hsl(0, 0%, 81%);
+    }
+
+    .container .card-3{
+      grid-area: card-3;
+    }
+    .container .card-5{
+      grid-area: card-5;
+    }
+
+    /* card-4 */
+    .container .card-4{
+      grid-area: card-4;
+      background-color: hsl(219, 29%, 14%);
+    }
+    .container .card-4 img{
+      border: 3px solid hsl(263, 55%, 52%);
+    }
+    .container .card-4 p.name{
+      color: hsl(210, 46%, 95%);
+    }
+    .container .card-4 p.title{
+      color: hsl(0, 0%, 81%);
+    }
+    .container .card-4 p.main{
+      color: hsl(210, 46%, 95%);
+    }
+    .container .card-4 p.desc{
+      color: hsl(0, 0%, 81%);
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    @media screen and (max-width: 375px) {
+      body{
+        height: auto;
+      }
+      .container{
+        margin-top: 50px;
+        width: 300px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+          "card-1"
+          "card-2"
+          "card-3"
+          "card-4"
+          "card-5";
+        grid-gap: 20px;
+      }
+      .container .card-1{
+        background-position: 180px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card card-1">
+      <div class="user">
+        <img src="images/image-daniel.jpg" alt="daniel">
+        <div class="id">
+          <p class="name">Daniel Clifford</p>
+          <p class="title">Verified Graduate</p>
+        </div>
+      </div>
+      <p class="main">I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny’s worth.</p>
+      <p class="desc">“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
+    </div>
+
+    <div class="card card-2">
+      <div class="user">
+        <img src="images/image-jonathan.jpg" alt="jonathan">
+        <div class="id">
+          <p class="name">Jonathan Walters</p>
+          <p class="title">Verified Graduate</p>
+        </div>
+      </div>
+      <p class="main">The team was very supportive and kept me motivated</p>
+      <p class="desc">“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investments I’ve made in myself. ”</p>
+    </div>
+
+    <div class="card card-3">
+      <div class="user">
+        <img src="images/image-jeanette.jpg" alt="jeanette">
+        <div class="id">
+          <p class="name">Jeanette Harmon</p>
+          <p class="title">Verified Graduate</p>
+        </div>
+      </div>
+      <p class="main">An overall wonderful and rewarding experience</p>
+      <p class="desc">“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love. ”</p>
+    </div>
+
+    <div class="card card-4">
+      <div class="user">
+        <img src="images/image-patrick.jpg" alt="patrick">
+        <div class="id">
+          <p class="name">Patrick Abrams</p>
+          <p class="title">Verified Graduate</p>
+        </div>
+      </div>
+      <p class="main">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</p>
+      <p class="desc">“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as a capable junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. ”</p>
+    </div>
+
+    <div class="card card-5">
+      <div class="user">
+        <img src="images/image-kira.jpg" alt="kira">
+        <div class="id">
+          <p class="name">Kira Whittle</p>
+          <p class="title">Verified Graduate</p>
+        </div>
+      </div>
+      <p class="main">Such a life-changing experience. Highly recommended!</p>
+      <p class="desc">“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I’ve often referred to it during interviews as an example of my developent experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 100% recommend! ”</p>
+    </div>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Abdullah Al-Karim</a>.
+  </div>
+</body>
+</html>
